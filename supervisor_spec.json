@@ -1,0 +1,41 @@
+{
+  "type": "kafka",
+  "spec" : {
+    "dataSchema": {
+      "dataSource": "data_from_kafka",
+      "timestampSpec": {
+        "column": "time",
+        "format": "auto"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "name",
+          "city"
+        ]
+      },
+      "metricsSpec" : [],
+      "granularitySpec": {
+        "type": "uniform",
+        "segmentGranularity": "MINUTE",
+        "queryGranularity": "NONE",
+        "rollup": false
+      }
+    },
+    "tuningConfig": {
+      "type": "kafka",
+      "reportParseExceptions": false
+    },
+    "ioConfig": {
+      "topic": "druidstream",
+      "inputFormat": {
+        "type": "json"
+      },
+      "replicas": 1,
+      "taskDuration": "PT10M",
+      "completionTimeout": "PT20M",
+      "consumerProperties": {
+        "bootstrap.servers": "kafka:9092"
+      }
+    }
+  }
+}
