@@ -10,7 +10,7 @@ A docker, docker-compose based example. Data ingested to Kafka moves to  Druid a
 docker-compose up -d
 ```
 
--  Create supervisor to pull data from Kafka. Go through json to understand more on the spec.
+-  Create supervisor to pull data from Kafka. Go through `supervisor_spec.json` to understand more on the spec.
 ```
 curl -XPOST -H'Content-Type: application/json' -d @supervisor_spec.json http://localhost:8081/druid/indexer/v1/supervisor
 ```
